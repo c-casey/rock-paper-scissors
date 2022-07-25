@@ -50,7 +50,7 @@
                 case "scissors":
                   verdict = "You lose! Scissors cut paper.";
                 }
-              } else if (playerSelection == scissors) {
+              } else if (playerSelection =="scissors") {
                 switch (computerSelection) {
                 case "rock":
                   verdict = "You lose! Rock smashes scissors.";
@@ -62,7 +62,22 @@
                   verdict = "You tie! Both of you chose scissors.";
                 }
               }
+
               return verdict;
+            }
+
+            function incScores(verdictins, losses) {
+              let outcome = String(verdict).substr(4, 1);
+              
+              switch (outcome) {
+              case "w":
+                wins++;
+                break;
+              case "l":
+                losses++;
+                break;
+              }
+              return ;
             }
 
             function game() {
@@ -71,9 +86,19 @@
               
               for (let i = 0; i < 5; i++) {
                 let playerSelection = prompt("Rock, Paper, or Scissors?");
-                alert( playRound(playerSelection, getComputerChoice()) );
+                verdict = playRound(playerSelection, getComputerChoice());
+                
+                if (String(verdict).substr(4,1) == "w") { wins++; }
+                else if (String(verdict).substr(4,1) == "l") { losses++; }
+
+                console.log( verdict + ` Wins: ${wins} Losses: ${losses}` )
               }
+
+              (wins > losses) ? console.log( "You win!" ) 
+              : (losses > wins) ? console.log( "You lose!" )
+              : console.log( "It's a tie!" )
             }
+            
             game();
         </script>
     </body>
