@@ -60,7 +60,13 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let wins = 0;
   let losses = 0;
-  
+
+  const results = document.createElement("div");
+
+  const div = document.createElement("div");
+  div.textContent = "Wins: 0, Losses: 0";
+  document.querySelector("body").appendChild(div);
+
   const buttons = document.querySelectorAll("button");
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", (e) => {
@@ -68,11 +74,16 @@ function game() {
 
       if (String(verdict).substring(4,5) == "w") wins++;
       else if (String(verdict).substring(4,5) == "l") losses++;
-      console.log( verdict + ` Wins: ${wins} Losses: ${losses}` )
 
-      // (wins === 5) ? console.log( "You win!" )
-      //   : (losses === 5) ? console.log( "You lose!" )
-      //   : console.log( "It's a tie!" )
+      div.textContent = `${verdict} Wins: ${wins}, Losses: ${losses}`;
+
+      if (wins === 5) {
+        results.textContent = "Congratulations, you've beaten the computer!";
+        document.querySelector("body").appendChild(results);
+      } else if (losses === 5) {
+        results.textContent = "Sorry, the computer beat you!";
+        document.querySelector("body").appendChild(results);
+      };
     })
   }
 }
