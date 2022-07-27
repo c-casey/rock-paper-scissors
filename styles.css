@@ -1,10 +1,13 @@
 body {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
     background-color: #ddffe7;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 20px;
-    /* align-items: center; */
 }
 
 .text-container {
@@ -17,6 +20,7 @@ body {
     background-color: #167d7f;
     border-radius: 15px;
     padding: 20px;
+    margin: 0 20%;
 }
 
 .button-container {
@@ -24,13 +28,12 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-shrink: 0;
-    max-width: 800px;
     height: 80px;
     gap: 80px;
-    padding: 40px 15%;
+    padding: 80px 15%;
     background-color: #98d7c2;
     border-radius: 15px;
-
+    margin: 0 5%;
 }
 
 button {
