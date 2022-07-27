@@ -65,7 +65,7 @@ function game() {
 
   const div = document.createElement("div");
   div.textContent = "Wins: 0, Losses: 0";
-  document.querySelector("body").appendChild(div);
+  document.querySelector(".text-container").appendChild(div);
 
   const buttons = document.querySelectorAll("button");
   for (let i = 0; i < buttons.length; i++) {
@@ -79,10 +79,10 @@ function game() {
 
       if (wins === 5) {
         results.textContent = "Congratulations, you've beaten the computer!";
-        document.querySelector("body").appendChild(results);
+        document.querySelector(".text-container").appendChild(results);
       } else if (losses === 5) {
         results.textContent = "Sorry, the computer beat you!";
-        document.querySelector("body").appendChild(results);
+        document.querySelector(".text-container").appendChild(results);
       };
     })
   }
